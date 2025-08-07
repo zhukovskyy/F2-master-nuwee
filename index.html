@@ -4,327 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Інженерія програмного забезпечення - НУВГП</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-        
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f8f9fa;
-        }
-
-        .hero {
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            padding: 80px 0;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 1000"><polygon fill="rgba(255,255,255,0.05)" points="0,1000 1000,0 1000,1000"/></svg>');
-            background-size: cover;
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .hero h1 {
-            font-size: 3.2em;
-            font-weight: 700;
-            margin-bottom: 15px;
-            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-        }
-
-        .hero .subtitle {
-            font-size: 1.4em;
-            opacity: 0.9;
-            margin-bottom: 25px;
-        }
-
-        .hero .degree {
-            font-size: 1.1em;
-            background: rgba(255,255,255,0.15);
-            padding: 8px 20px;
-            border-radius: 25px;
-            display: inline-block;
-            margin-bottom: 20px;
-        }
-
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .section {
-            background: white;
-            margin: 30px 0;
-            padding: 40px;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
-        }
-
-        .section h2 {
-            color: #1e3c72;
-            font-size: 2em;
-            margin-bottom: 25px;
-            border-bottom: 3px solid #2a5298;
-            padding-bottom: 10px;
-        }
-
-        .program-info {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 30px;
-        }
-
-        .info-block {
-            background: #f8f9fa;
-            padding: 25px;
-            border-radius: 8px;
-            border-left: 4px solid #2a5298;
-        }
-
-        .info-block h3 {
-            color: #1e3c72;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-        }
-
-        .info-block p, .info-block ul {
-            color: #555;
-            line-height: 1.7;
-        }
-
-        .info-block ul {
-            padding-left: 20px;
-        }
-
-        .info-block li {
-            margin-bottom: 5px;
-        }
-
-        .table-container {
-            overflow-x: auto;
-            margin-top: 20px;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            background: white;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        }
-
-        th {
-            background: #1e3c72;
-            color: white;
-            padding: 15px 12px;
-            text-align: left;
-            font-weight: 600;
-        }
-
-        td {
-            padding: 12px;
-            border-bottom: 1px solid #eee;
-        }
-
-        tr:hover {
-            background: #f8f9fa;
-        }
-
-        .credits {
-            background: #e3f2fd;
-            color: #1565c0;
-            padding: 6px 12px;
-            border-radius: 4px;
-            font-weight: 600;
-        }
-
-        .btn {
-            display: inline-block;
-            background: linear-gradient(45deg, #1e3c72, #2a5298);
-            color: white;
-            padding: 12px 30px;
-            border-radius: 25px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: transform 0.3s, box-shadow 0.3s;
-        }
-
-        .btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(42, 82, 152, 0.3);
-        }
-
-        .highlight-box {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            padding: 25px;
-            border-radius: 12px;
-            margin: 20px 0;
-        }
-
-        .highlight-box h3 {
-            margin-bottom: 15px;
-        }
-
-        .carousel-container {
-            position: relative;
-            max-width: 100%;
-            overflow: hidden;
-            margin: 20px 0;
-        }
-
-        .carousel {
-            display: flex;
-            gap: 20px;
-            transition: transform 0.5s ease;
-            padding: 20px 0;
-        }
-
-        .teacher-card {
-            min-width: 280px;
-            background: #f8f9fa;
-            border-radius: 12px;
-            padding: 25px;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
-            border: 2px solid transparent;
-            transition: all 0.3s ease;
-        }
-
-        .teacher-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-            border-color: #2a5298;
-        }
-
-        .teacher-photo {
-            width: 80px;
-            height: 80px;
-            margin: 0 auto 15px;
-            border-radius: 50%;
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            overflow: hidden;
-        }
-
-        .photo-placeholder {
-            font-size: 2em;
-            color: white;
-        }
-
-        .teacher-card h3 {
-            color: #1e3c72;
-            font-size: 1.1em;
-            margin-bottom: 8px;
-            font-weight: 600;
-        }
-
-        .teacher-position {
-            color: #2a5298;
-            font-weight: 600;
-            margin-bottom: 8px;
-            font-size: 0.9em;
-        }
-
-        .teacher-specialty {
-            color: #666;
-            font-size: 0.85em;
-            line-height: 1.4;
-        }
-
-        .carousel-btn {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            background: linear-gradient(135deg, #1e3c72 0%, #2a5298 100%);
-            color: white;
-            border: none;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            font-size: 1.5em;
-            cursor: pointer;
-            z-index: 2;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .carousel-btn:hover {
-            transform: translateY(-50%) scale(1.1);
-            box-shadow: 0 6px 20px rgba(0,0,0,0.3);
-        }
-
-        .carousel-btn.prev {
-            left: -25px;
-        }
-
-        .carousel-btn.next {
-            right: -25px;
-        }
-
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.2em;
-            }
-            
-            .program-info {
-                grid-template-columns: 1fr;
-            }
-            
-            .section {
-                margin: 20px 0;
-                padding: 25px;
-            }
-            
-            table, th, td {
-                font-size: 0.9em;
-            }
-
-            .carousel-btn {
-                width: 40px;
-                height: 40px;
-                font-size: 1.2em;
-            }
-            
-            .carousel-btn.prev {
-                left: -20px;
-            }
-            
-            .carousel-btn.next {
-                right: -20px;
-            }
-            
-            .teacher-card {
-                min-width: 250px;
-            }
-        }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="hero">
@@ -543,6 +223,142 @@
         </section>
 
         <section class="section">
+            <h2>👩‍🏫 Викладачі кафедри</h2>
+            <div class="carousel-container">
+                <div class="carousel">
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="little/Жуковська.jpg" alt="Жуковська">
+                        </div>
+                        <h3>Наталія Жуковська</h3>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="little/Краковецький.jpg" alt="Краковецький">
+                        </div>
+                        <h3>Олександр Краковецький</h3>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="little/Іванчук.jpg" alt="Іванчук">
+                        </div>
+                        <h3>Наталія Іванчук</h3>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="little/Бачишина.jpg" alt="Бачишина">
+                        </div>
+                        <h3>Лариса Бачишина</h3>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="little/Бомба.jpg" alt="Бомба">
+                        </div>
+                        <h3>Андрій Бомба</h3>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="little/Герус.jpg" alt="Герус">
+                        </div>
+                        <h3>Володимир Герус</h3>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="little/Гладун.jpg" alt="Гладун">
+                        </div>
+                        <h3>Любомир Гладун</h3>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="little/Демчук.jpg" alt="Демчук">
+                        </div>
+                        <h3>Олена Демчук</h3>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="little/Жуковський.jpg" alt="Жуковський">
+                        </div>
+                        <h3>Віктор Жуковський</h3>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="little/Климюк.jpg" alt="Климюк">
+                        </div>
+                        <h3>Юрій Климюк</h3>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="little/Кожушко.jpg" alt="Кожушко">
+                        </div>
+                        <h3>Олена Кожушко</h3>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="little/Кубай.jpg" alt="Кубай">
+                        </div>
+                        <h3>Олександр Кубай</h3>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="little/Мічута.jpg" alt="Мічута">
+                        </div>
+                        <h3>Ольга Мічута</h3>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="little/Мартинюк.jpg" alt="Мартинюк">
+                        </div>
+                        <h3>Петро Мартинюк</h3>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="little/Остапчук.jpg" alt="Остапчук">
+                        </div>
+                        <h3>Оксана Остапчук</h3>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="little/Повшенюк.jpg" alt="Повшенюк">
+                        </div>
+                        <h3>Андрій Повшенюк</h3>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="little/Турбал.jpg" alt="Турбал">
+                        </div>
+                        <h3>Юрій Турбал</h3>
+                    </div>
+
+                    <div class="teacher-card">
+                        <div class="teacher-photo">
+                            <img src="little/Харів.jpg" alt="Харів">
+                        </div>
+                        <h3>Наталія Харів</h3>
+                    </div>
+                </div>
+                
+                <button class="carousel-btn prev" onclick="moveCarousel(-1)">‹</button>
+                <button class="carousel-btn next" onclick="moveCarousel(1)">›</button>
+            </div>
+        </section>
+
+        <section class="section">
             <h2>🔄 Механізми визнання попереднього навчання</h2>
             <div class="info-block">
                 <p>Визнання результатів навчання, отриманих у неформальній та інформальній освіті здійснюється відповідно до «Положення про неформальну та інформальну освіту в НУВГП». Визнання іноземних документів про освіту відбувається у порядку, зазначеному в наказі МОН України від 05.05.2015 р. за № 504 та наказі МОН України від 10.03.2009 р. за № 220.</p>
@@ -601,182 +417,32 @@
             <a href="mailto:rc@nuwm.edu.ua" class="btn">Зв'язатися з приймальною комісією</a>
         </section>
 
-        <section class="section">
-            <h2>👨‍🏫 Викладачі програми</h2>
-            <div class="carousel-container">
-                <div class="carousel">
-                    <div class="teacher-card">
-                        <div class="teacher-photo">
-                            <div class="photo-placeholder">👨‍💻</div>
-                        </div>
-                        <h3>Мартинюк Петро Миколайович</h3>
-                        <p class="teacher-position">Доктор технічних наук, професор</p>
-                        <p class="teacher-specialty">Експертиза програмного забезпечення, методології розробки</p>
-                    </div>
-
-                    <div class="teacher-card">
-                        <div class="teacher-photo">
-                            <div class="photo-placeholder">👨‍💼</div>
-                        </div>
-                        <h3>Турбал Юрій</h3>
-                        <p class="teacher-position">Кандидат технічних наук, доцент</p>
-                        <p class="teacher-specialty">Алгоритмізація та програмування, базы данних</p>
-                    </div>
-
-                    <div class="teacher-card">
-                        <div class="teacher-photo">
-                            <div class="photo-placeholder">👨‍🔬</div>
-                        </div>
-                        <h3>Краковецький Олександр</h3>
-                        <p class="teacher-position">Кандидат технічних наук, доцент</p>
-                        <p class="teacher-specialty">Системи штучного інтелекту, машинне навчання</p>
-                    </div>
-
-                    <div class="teacher-card">
-                        <div class="teacher-photo">
-                            <div class="photo-placeholder">👨‍💻</div>
-                        </div>
-                        <h3>Жуковський Віктор</h3>
-                        <p class="teacher-position">Кандидат технічних наук, доцент</p>
-                        <p class="teacher-specialty">Веб-технології, інформаційні системи</p>
-                    </div>
-
-                    <div class="teacher-card">
-                        <div class="teacher-photo">
-                            <div class="photo-placeholder">👩‍💻</div>
-                        </div>
-                        <h3>Жуковська Наталія</h3>
-                        <p class="teacher-position">Кандидат технічних наук, доцент</p>
-                        <p class="teacher-specialty">Тестування ПЗ, забезпечення якості</p>
-                    </div>
-
-                    <div class="teacher-card">
-                        <div class="teacher-photo">
-                            <div class="photo-placeholder">👨‍🔬</div>
-                        </div>
-                        <h3>Бомба Андрій</h3>
-                        <p class="teacher-position">Доктор фізико-математичних наук, професор</p>
-                        <p class="teacher-specialty">Математичне моделювання, обчислювальна математика</p>
-                    </div>
-
-                    <div class="teacher-card">
-                        <div class="teacher-photo">
-                            <div class="photo-placeholder">👩‍💼</div>
-                        </div>
-                        <h3>Демчук Олена</h3>
-                        <p class="teacher-position">Кандидат технічних наук, доцент</p>
-                        <p class="teacher-specialty">Управління проєктами, методології розробки ПЗ</p>
-                    </div>
-
-                    <div class="teacher-card">
-                        <div class="teacher-photo">
-                            <div class="photo-placeholder">👩‍🏫</div>
-                        </div>
-                        <h3>Остапчук Оксана</h3>
-                        <p class="teacher-position">Кандидат технічних наук, доцент</p>
-                        <p class="teacher-specialty">Інформаційна безпека, криптографія</p>
-                    </div>
-
-                    <div class="teacher-card">
-                        <div class="teacher-photo">
-                            <div class="photo-placeholder">👨‍💻</div>
-                        </div>
-                        <h3>Зубик Ярослав Ярославович</h3>
-                        <p class="teacher-position">Кандидат технічних наук, доцент</p>
-                        <p class="teacher-specialty">Мобільні технології, розподілені системи</p>
-                    </div>
-
-                    <div class="teacher-card">
-                        <div class="teacher-photo">
-                            <div class="photo-placeholder">👨‍🔬</div>
-                        </div>
-                        <h3>Повшенюк Андрій Петрович</h3>
-                        <p class="teacher-position">Кандидат технічних наук, доцент</p>
-                        <p class="teacher-specialty">Комп'ютерні мережі, IoT технології</p>
-                    </div>
-
-                    <div class="teacher-card">
-                        <div class="teacher-photo">
-                            <div class="photo-placeholder">👩‍🏫</div>
-                        </div>
-                        <h3>Бачишина Лариса Дмитрівна</h3>
-                        <p class="teacher-position">Кандидат педагогічних наук, доцент</p>
-                        <p class="teacher-specialty">Методика викладання ІТ, дидактика програмування</p>
-                    </div>
-
-                    <div class="teacher-card">
-                        <div class="teacher-photo">
-                            <div class="photo-placeholder">👩‍💼</div>
-                        </div>
-                        <h3>Харів Наталія Олексіївна</h3>
-                        <p class="teacher-position">Кандидат економічних наук, доцент</p>
-                        <p class="teacher-specialty">ІТ-підприємництво, цифрова економіка</p>
-                    </div>
-
-                    <div class="teacher-card">
-                        <div class="teacher-photo">
-                            <div class="photo-placeholder">👨‍💼</div>
-                        </div>
-                        <h3>Климюк Юрій Євгенійович</h3>
-                        <p class="teacher-position">Кандидат технічних наук, доцент</p>
-                        <p class="teacher-specialty">DevOps, автоматизація розробки, CI/CD</p>
-                    </div>
-
-                    <div class="teacher-card">
-                        <div class="teacher-photo">
-                            <div class="photo-placeholder">👨‍🔬</div>
-                        </div>
-                        <h3>Герус Володимир</h3>
-                        <p class="teacher-position">Кандидат технічних наук, доцент</p>
-                        <p class="teacher-specialty">Генеративний ШІ, нейронні мережі</p>
-                    </div>
-                </div>
-                
-                <button class="carousel-btn prev" onclick="moveCarousel(-1)">‹</button>
-                <button class="carousel-btn next" onclick="moveCarousel(1)">›</button>
+        <section class="section" style="text-align: center; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white;">
+            <h2 style="color: white; border-bottom: 3px solid white;">🎓 Твій диплом і нові знання чекають на тебе!</h2>
+            <div style="max-width: 600px; margin: 30px auto;">
+                <img src="300_little.png" alt="Випускники НУВГП з дипломами" style="width: 100%; border-radius: 15px; box-shadow: 0 8px 30px rgba(0,0,0,0.3); margin-bottom: 20px;">
             </div>
+            <p style="font-size: 1.2em; margin: 20px 0; font-style: italic;">
+                "Успіх — це не кінцева точка, це подорож. І твоя подорож до успіху в ІТ почнеться тут!"
+            </p>
+            <a href="mailto:rc@nuwm.edu.ua" class="btn" style="background: white; color: #667eea; margin-top: 20px;">
+                🚀 Почати свою ІТ-кар'єру
+            </a>
         </section>
-
-
     </div>
 
     <footer style="background: #1e3c72; color: white; text-align: center; padding: 30px 0; margin-top: 50px;">
         <div class="container">
             <p>Освітня програма "Інженерія програмного забезпечення"</p>
             <p>&copy; 2025 Національний університет водного господарства та природокористування</p>
+            
+            <div style="margin-top: 20px; padding: 15px; background: rgba(255,255,255,0.1); border-radius: 8px; font-size: 0.9em;">
+                <p style="margin-bottom: 5px;">🤖 <strong>Цей сайт було створено за допомогою генеративного ШІ всього за один вечір!</strong></p>
+                <p style="font-style: italic; opacity: 0.9;">Хочеш навчитися таким технологіям? Давай до нас! 🚀</p>
+            </div>
         </div>
     </footer>
 
-    <script>
-        let currentSlide = 0;
-        const carousel = document.querySelector('.carousel');
-        const cards = document.querySelectorAll('.teacher-card');
-        const totalCards = cards.length;
-        const cardsToShow = window.innerWidth <= 768 ? 1 : (window.innerWidth <= 1024 ? 2 : 3);
-        const maxSlide = totalCards - cardsToShow;
-
-        function moveCarousel(direction) {
-            currentSlide += direction;
-            
-            if (currentSlide < 0) {
-                currentSlide = maxSlide;
-            } else if (currentSlide > maxSlide) {
-                currentSlide = 0;
-            }
-            
-            const translateX = currentSlide * (300 + 20); // card width + gap
-            carousel.style.transform = `translateX(-${translateX}px)`;
-        }
-
-        // Auto-slide every 5 seconds
-        setInterval(() => {
-            moveCarousel(1);
-        }, 5000);
-
-        // Handle window resize
-        window.addEventListener('resize', () => {
-            location.reload(); // Simple solution for responsive behavior
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
